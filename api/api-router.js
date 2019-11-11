@@ -13,14 +13,14 @@ router.get('/', (req, res) => {
 });
 
 router.post('/hash', (req, res) => {
-	// read a password from the body
-	// hash the password using bcryptjs
+  // read a password from the body
+  const original = req.body.password;
+  const credentials = req.body;
+  // hash the password using bcryptjs
+  const hash = bcrypt.hashSync(credentials.password, 12);
+  credentials.password = hash;
 	// return it to the user in an object that looks like
 	// { password: 'original passsword', hash: 'hashed password' }
-	const original = req.body.password;
-	const credentials = req.body;
-	const hash = bcrypt.hashSync(credentials.password, 14);
-	credentials.password = hash;
 	res.json({ originalPassword: original, hashedPassword: hash });
 });
 
