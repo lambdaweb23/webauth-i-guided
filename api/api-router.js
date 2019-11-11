@@ -25,3 +25,20 @@ router.post('/hash', (req, res) => {
 });
 
 module.exports = router;
+
+
+// router.post('/hash', (req, res) => {
+//   // read a password from the body
+//   const password = req.body.password;
+// ​
+//   // hash the password using bcryptjs
+//   const hash = bcrypt.hashSync(password, 12);
+// ​
+//   // return it to the user in an object that looks like
+//   // { password: 'original passsword', hash: 'hashed password' }
+//   res.status(200).json({ password, hash });
+// });
+// ​
+// // $2a$08$1kMv.s4r.qlAXTe0oKHU8u3kWEVZxkUOBwdCuQP4qwshieyR03rOq
+// // $2a$08$1ay31448JC7RYlBOTaqlzeZMA22U9czIh/xK5QuDXEtXwMGHFMDT6
+// ​
